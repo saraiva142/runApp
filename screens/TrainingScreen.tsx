@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
-export default function AthleteScreen() {
+export default function TrainingScreen() {
   const [name, setName] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [day, setDay] = useState('');
+  const [km, setKm] = useState('');
+  const [pace, setPace] = useState('');
 
   const handleSave = () => {
-    console.log('Atleta salvo:', { name, cpf });
+    console.log('Treino salvo:', { name, day, km, pace });
   };
 
   return (
@@ -19,9 +21,21 @@ export default function AthleteScreen() {
       />
       <TextInput
         style={styles.input}
-        placeholder="Cpf do atleta"
-        value={cpf}
-        onChangeText={setCpf}
+        placeholder="Dia de Treino"
+        value={day}
+        onChangeText={setDay}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Quilometros"
+        value={km}
+        onChangeText={setKm}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Pace do Treino"
+        value={pace}
+        onChangeText={setPace}
       />
       <Button title="Salvar" onPress={handleSave} />
     </View>
