@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }: any) {
       </View>
 
       <View style={styles.subHeaderContainer}>
-        <Text style={styles.subHeader}>Olá Clube</Text>
+        <Text style={styles.subHeader}>Olá Clube &</Text>
         <Text style={styles.subHeader}>Boa Corrida</Text>
       </View>
 
@@ -42,7 +42,7 @@ export default function HomeScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#EFE9E9',
   },
   headerContainer: {
     flex: 1,
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    color: '#FF0000',
-    fontSize: 100,
+    color: '#00a8ff',
+    fontSize: 110,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   subHeader: {
-    color: '#FF0000',
+    color: '#00a8ff',
     fontSize: 20,
-    fontWeight: '300',
+    fontWeight: '400',
   },
   content: {
     flex: 2,
