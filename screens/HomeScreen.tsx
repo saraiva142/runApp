@@ -1,3 +1,4 @@
+import { Lora_400Regular, Lora_400Regular_Italic } from '@expo-google-fonts/lora';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
@@ -50,19 +51,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    color: '#00a8ff',
+    //color: '#00a8ff', AZUL
+    color: '#000',
     fontSize: 110,
-    fontWeight: 'bold',
+    fontWeight: 'light',
     textAlign: 'center',
+    fontFamily: 'Lora_400Regular',
   },
   subHeaderContainer: {
     marginTop: 1,
     alignItems: 'stretch',
   },
   subHeader: {
-    color: '#00a8ff',
+    //color: '#00a8ff',
+    color: '#000',
     fontSize: 20,
-    fontWeight: '400',
+    fontFamily: 'Lora_400Regular',
   },
   content: {
     flex: 2,
