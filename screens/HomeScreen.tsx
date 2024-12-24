@@ -10,8 +10,8 @@ export default function HomeScreen({ navigation }: any) {
       </View>
 
       <View style={styles.subHeaderContainer}>
-        <Text style={styles.subHeader}>Olá Clube &</Text>
-        <Text style={styles.subHeader}>Boa Corrida</Text>
+        <Text style={styles.subHeader}>Bem Vindo ao Clube </Text>
+        <Text style={styles.subHeader}>Boa Corrida 🏃‍♂️</Text>
       </View>
 
       <View style={styles.content}>
