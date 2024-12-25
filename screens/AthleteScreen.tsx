@@ -53,6 +53,7 @@ export default function AthleteScreen() {
       {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerEdit}>Editar Atleta</Text>
+        <Text style={styles.footerEdit}>Excluir Atleta</Text>
         <Text style={styles.footerText}>RunApp</Text>
       </View>
     </View>
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000',
   },
   inputLabel: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#000',
   },
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   footerEdit: {
-    fontSize: 12,
+    fontSize: 18,
     color: '#000',
     textAlign: 'right',
     alignSelf: 'flex-end',

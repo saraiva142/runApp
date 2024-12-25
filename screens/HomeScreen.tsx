@@ -34,6 +34,13 @@ export default function HomeScreen({ navigation }: any) {
           >
             <Text style={styles.buttonText}>Cadastrar Treino</Text>
           </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => navigation.navigate('Query')}
+          >
+            <Text style={styles.buttonText}>Treino - Atletas</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -94,6 +101,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#000',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Lora_400Regular_Italic',
   },
 });

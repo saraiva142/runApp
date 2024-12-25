@@ -1,3 +1,4 @@
+import { Lora_700Bold } from '@expo-google-fonts/lora';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from 'react-native';
 
@@ -62,7 +63,8 @@ export default function TrainingScreen() {
   
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.footerEdit}>Editar Atleta</Text>
+          <Text style={styles.footerEdit}>Editar Treino</Text>
+          <Text style={styles.footerEdit}>Excluir Treino</Text>
           <Text style={styles.footerText}>RunApp</Text>
         </View>
       </View>
@@ -94,7 +96,7 @@ export default function TrainingScreen() {
       borderBottomColor: '#000',
     },
     inputLabel: {
-      fontSize: 16,
+      fontSize: 20,
       fontWeight: 'bold',
       color: '#000',
     },
@@ -122,8 +124,8 @@ export default function TrainingScreen() {
       marginBottom: 10,
     },
     footerEdit: {
-      fontSize: 12,
-      color: '#000',
+      fontSize: 18,
+      fontWeight: 500,
       textAlign: 'right',
       alignSelf: 'flex-end',
       marginRight: 20,

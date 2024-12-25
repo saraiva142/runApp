@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import AthleteScreen from './screens/AthleteScreen';
 import TrainingScreen from './screens/TrainingScreen';
+import QueryScreen from './screens/QueryScreen';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
@@ -34,6 +35,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Athlete" component={AthleteScreen} />
         <Stack.Screen name="Training" component={TrainingScreen} />
+        <Stack.Screen name="Query" component={QueryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
