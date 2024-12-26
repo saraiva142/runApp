@@ -1,16 +1,75 @@
 import { Lora_700Bold } from '@expo-google-fonts/lora';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from 'react-native';
+import {
+  Modal,
+  FlatList,
+  Platform,
+  ScrollView,
+} from 'react-native';
 
 export default function TrainingScreen() {
-  const [name, setName] = useState('');
+  const [selectedAthlete, setSelectedAthlete] = useState<string>('Atleta');
+  const [isAthleteModalVisible, setAthleteModalVisible] = useState<boolean>(false);
+  /*const [name, setName] = useState('');*/
   const [day, setDay] = useState('');
   const [km, setKm] = useState('');
   const [pace, setPace] = useState('');
 
+  const athleteOptions: string[] = [
+    'João Victor - 007',
+    'Maria Souza - 012',
+    'Arthur Mendes - 021',
+    'Izadora Souza - 121',
+    'Lucas Junior - 045',
+    'Leticia Mendes - 621',
+    'Eduarda Martins - 331',
+  ];
+
   const handleSave = () => {
     console.log('Treino salvo:', { name, day, km, pace });
   };
+
+  const renderModal = (
+      options: string[],
+      onSelect: (value: string) => void,
+      setVisible: (value: boolean) => void
+    ) => (
+      <Modal
+        visible={true}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <FlatList
+              data={options}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.modalOption}
+                  onPress={() => {
+                    onSelect(item);
+                    setVisible(false);
+                  }}
+                >
+                  <Text style={styles.modalOptionText}>{item}</Text>
+                </TouchableOpacity>
+              )}
+              style={styles.modalList}
+              contentContainerStyle={{ paddingBottom: 10 }}
+            />
+            <TouchableOpacity
+              style={styles.modalClose}
+              onPress={() => setVisible(false)}
+            >
+              <Text style={styles.modalCloseText}>Fechar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+    );
 
   return (
       <View style={styles.container}>
@@ -22,13 +81,14 @@ export default function TrainingScreen() {
         {/* Formulário */}
         <View style={styles.form}>
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>NOME - ATLETA</Text>
-            <TextInput
-                    style={styles.input}
-                    value={name}
-                    onChangeText={setName}
-                  />
-          </View>
+                    <Text style={styles.inputLabel}>NOME - ATLETA</Text>
+                    <TouchableOpacity
+                      style={styles.dropdown}
+                      onPress={() => setAthleteModalVisible(true)}
+                    >
+                      <Text style={styles.dropdownText}>{selectedAthlete}</Text>
+                    </TouchableOpacity>
+                  </View>
           <View style={styles.inputContainer}>
             <Text style={styles.inputLabel}>DIA - TREINO</Text>
             <TextInput
@@ -67,6 +127,11 @@ export default function TrainingScreen() {
           <Text style={styles.footerEdit}>Excluir Treino</Text>
           <Text style={styles.footerText}>RunApp</Text>
         </View>
+
+        {/* Modals */}
+      {isAthleteModalVisible &&
+        renderModal(athleteOptions, setSelectedAthlete, setAthleteModalVisible)}
+      
       </View>
     );
   }
@@ -136,6 +201,55 @@ export default function TrainingScreen() {
       fontFamily: 'Lora_400Regular',
       color: '#000',
       textAlign: 'center',
+    },
+    dropdown: {
+      backgroundColor: '#F5F5F5',
+      borderWidth: 0,
+      borderColor: '#ccc',
+      borderRadius: 15,
+      height: 50,
+      justifyContent: 'center',
+      paddingHorizontal: 0,
+    },
+    dropdownText: {
+      fontSize: 16,
+      color: '#000',
+    },
+    modalOverlay: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+    modalContent: {
+      backgroundColor: '#fff',
+      borderRadius: 20,
+      padding: 20,
+      width: '80%',
+      maxHeight: '50%',
+      alignItems: 'center',
+    },
+    modalList: {
+      maxHeight: 120,
+      width: '100%',
+    },
+    modalOption: {
+      paddingVertical: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: '#ccc',
+    },
+    modalOptionText: {
+      fontSize: 16,
+      color: '#000',
+      textAlign: 'center',
+    },
+    modalClose: {
+      marginTop: 20,
+    },
+    modalCloseText: {
+      fontSize: 16,
+      color: '#000',
+      fontWeight: 'bold',
     },
   });
   

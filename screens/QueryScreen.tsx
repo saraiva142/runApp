@@ -13,8 +13,8 @@ import {
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function QueryScreen() {
-  const [selectedAthlete, setSelectedAthlete] = useState<string>('João Victor - 007');
-  const [selectedDate, setSelectedDate] = useState<string>('22/12/2024 - 28/12/2024');
+  const [selectedAthlete, setSelectedAthlete] = useState<string>('Atleta');
+  const [selectedDate, setSelectedDate] = useState<string>('Data do Treino');
   const [isAthleteModalVisible, setAthleteModalVisible] = useState<boolean>(false);
   const [isDatePickerVisible, setDatePickerVisible] = useState<boolean>(false);
   const [date, setDate] = useState<Date>(new Date());
