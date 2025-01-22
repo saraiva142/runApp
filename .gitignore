@@ -34,3 +34,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+.env 
+#Esse .env vai ignorar meu arquivo que é a chave para a autenticação com o clerk

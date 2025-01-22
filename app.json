@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "runApp",
+    "scheme": "runApp",
     "slug": "runApp",
     "version": "1.0.0",
     "orientation": "portrait",
